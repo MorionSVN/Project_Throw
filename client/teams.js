@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const teams = [
-        { name: "Los Angeles Lakers", description: "Описание команды 1" },
+        { name: "Los Angeles Lakers", description: "Описание" },
         { name: "Команда 2", description: "Описание команды 2" },
         { name: "Команда 3", description: "Описание команды 3" },
     ];
