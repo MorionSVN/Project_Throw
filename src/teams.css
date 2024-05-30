@@ -78,7 +78,7 @@ main h2 {
     flex: 1;
     min-width: 250px;
     max-width: calc(33% - 40px);
-    margin-bottom: 25px; /* Добавлен отступ между секциями команд */
+    margin-bottom: 25px;
 }
 
 .team h2 {
