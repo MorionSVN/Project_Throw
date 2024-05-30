@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THROW</title>
-    <link href="../client/assets/imgs/favicon.svg" rel="icon" type="image/svg+xml">
-    <link href="newsletter.css" rel="stylesheet">
+    <link href="teams.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="main.html">
+        <a href="../index.php" class="logo-link">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="231" height="44" viewBox="0 0 231 44"
                 fill="none">
                 <g clip-path="url(#clip0_29_2)">
@@ -51,25 +50,60 @@
         </a>
         <nav>
             <ul>
-                <li><a href="teams.html">КОМАНДЫ</a></li>
-                <li><a href="schedule.html">РАСПИСАНИЕ</a></li>
+                <li><a href="schedule.php">РАСПИСАНИЕ</a></li>
+                <li><a href="account.php">АККАУНТ</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Подписка на новости</h2>
-        <section class="subscription-form">
-            <form class="subscribeForm">
-                <label for="email">Электронная почта:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Подписаться</button>
-            </form>
-            <p id="message"></p>
+        <h2>Команды</h2>
+        <section class="teams-list">
+            <?php
+            $db = new mysqli('localhost', 'reverendo_throw', 'Synyster7', 'reverendo_throw');
+
+            if ($db->connect_error) {
+                die('Ошибка соединения: ' . $db->connect_error);
+            }
+
+            $query = "SELECT TeamID, TeamName FROM TEAMS";
+            $result = $db->query($query);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<section class='team'>";
+                    echo "<h2>" . htmlspecialchars($row['TeamName']) . "</h2>";
+                    $teamId = $row['TeamID'];
+                    $playerQuery = "SELECT PlayerName, Performance, Number, Role FROM PLAYERS WHERE TeamID = ?";
+                    $stmt = $db->prepare($playerQuery);
+                    $stmt->bind_param("i", $teamId);
+                    $stmt->execute();
+                    $playerResult = $stmt->get_result();
+        
+                    if ($playerResult->num_rows > 0) {
+                        echo "<p><strong>Ростер:</strong></p>";
+                        echo "<ul>";
+                        while($playerRow = $playerResult->fetch_assoc()) {
+                            echo "<li>" . htmlspecialchars($playerRow['PlayerName']) . " (№" . htmlspecialchars($playerRow['Number']) . ") - " . htmlspecialchars($playerRow['Role']) . " - Производительность: " . htmlspecialchars($playerRow['Performance']) . "</li>";
+                        }
+                    echo "</ul>";
+                    }
+                    else {
+                        echo "<p>Нет данных о ростере.</p>";
+                    }
+
+                echo "</section>";
+                }
+            }
+            else {
+                echo "<p>Нет данных о командах.</p>";
+            }
+
+            $db->close();
+            ?>
         </section>
     </main>
     <footer>
-        <a href="newsletter.html">РАССЫЛКА</a>
+        <a href="newsletter.php">РАССЫЛКА</a>
     </footer>
-    <script src="newsletter.js"></script>
 </body>
 </html>

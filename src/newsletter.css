@@ -54,8 +54,8 @@ nav ul li a:hover {
 }
 
 main {
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 75px;
+    margin-bottom: 200px;
     padding: 20px;
     display: flex;
     flex-direction: column;

@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THROW</title>
-    <link href="../client/assets/imgs/favicon.svg" rel="icon" type="image/svg+xml">
-    <link href="teams.css" rel="stylesheet">
+    <link href="account.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="main.html" class="logo-link">
+        <a href="../index.php" class="logo-link">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="231" height="44" viewBox="0 0 231 44"
                 fill="none">
                 <g clip-path="url(#clip0_29_2)">
@@ -51,33 +50,22 @@
         </a>
         <nav>
             <ul>
-                <li><a href="teams.html">КОМАНДЫ</a></li>
-                <li><a href="schedule.html">РАСПИСАНИЕ</a></li>
+                <li><a href="teams.php">КОМАНДЫ</a></li>
+                <li><a href="schedule.php">РАСПИСАНИЕ</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="teams">
-            <h2>Команды</h2>
-            <section class="teams-container">
-                <section class="team-item">
-                    <h3>Los Angeles Lakers</h3>
-                    <p>Описание</p>
-                </section>
-                <section class="team-item">
-                    <h3>Команда 2</h3>
-                    <p>Описание</p>
-                </section>
-                <section class="team-item">
-                    <h3>Команда 3</h3>
-                    <p>Описание</p>
-                </section>
-            </section>
-        </section>
+        <form method="post" action="reg.php">
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" name="Mail" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="Password" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
     </main>
     <footer>
-        <a href="newsletter.html">РАССЫЛКА</a>
+        <a href="newsletter.php">РАССЫЛКА</a>
     </footer>
-    <script src="teams.js"></script>
 </body>
 </html>
