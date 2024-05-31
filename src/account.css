@@ -69,11 +69,13 @@ h2 {
     color: #ffffff;
 }
 
-.subscription-form {
+form {
     background-color: #272727;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
 }
 
 label {
@@ -83,15 +85,7 @@ label {
     color: #ffffff;
 }
 
-input[type="email"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
+input[type="email"],
 input[type="password"] {
     width: calc(100% - 20px);
     padding: 10px;
@@ -117,7 +111,7 @@ button:hover {
     background-color: #ff9900;
 }
 
-#message {
+#response-message {
     margin-top: 20px;
     font-size: 16px;
     color: #FFA500;
