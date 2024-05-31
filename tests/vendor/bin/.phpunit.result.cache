@@ -1,0 +1,1 @@
+{"version":1,"defects":{"RegTest::testSuccessfulRegistration":1,"RegTest::testRegistrationError":1,"RegTest::testConnectionError":1},"times":{"RegTest::testSuccessfulRegistration":0,"RegTest::testRegistrationError":0,"RegTest::testConnectionError":0}}

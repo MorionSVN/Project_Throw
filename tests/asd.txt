@@ -1,0 +1,5 @@
+Mocha
+npm test
+
+PHPUnit
+php vendor\bin\phpunit test\regtest.php
